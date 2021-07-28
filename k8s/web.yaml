@@ -11,7 +11,7 @@ spec:
       labels:
         app: web
     spec:
-      containers:
+     containers:
       - name: web
         image: erikdelimavicente/rotten-potatoes:v1
         ports:
@@ -20,7 +20,7 @@ spec:
          - name: MONGODB_DB
            value: admin
          - name: MONGODB_HOST
-           value: mongo  
+           value: mongodb-service  
          - name: MONGODB_PORT
            value: "27017"
          - name: MONGODB_USERNAME
@@ -38,6 +38,5 @@ spec:
   selector:
     app: web
   ports:
-  - port: 80
-    targetPort: 5000
+  - port: 5000
   type: LoadBalancer
