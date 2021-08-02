@@ -11,3 +11,5 @@
 
 <h2>How can destroy Web Applicantion at local environment (development environment)?</h2>
 <p>execute this command: "docker-compose down"</p>
+
+<h2>Create yaml files to k8s pods</h2>
