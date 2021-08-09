@@ -12,21 +12,21 @@ spec:
         app: web
     spec:
      containers:
-      - name: web
-        image: erikdelimavicente/rotten-potatoes:v1
-        ports:
-         - containerPort: 5000
-        env:
-         - name: MONGODB_DB
-           value: admin
-         - name: MONGODB_HOST
-           value: mongodb-service  
-         - name: MONGODB_PORT
-           value: "27017"
-         - name: MONGODB_USERNAME
-           value: mongouser 
-         - name: MONGODB_PASSWORD
-           value: mongopwd
+       - name: web
+         image: erikdelimavicente/rotten-potatoes:v1
+         ports:
+          - containerPort: 5000
+         env:
+          - name: MONGODB_DB
+            value: admin
+          - name: MONGODB_HOST
+            value: mongodb-service.mongo.svc.cluster.local
+          - name: MONGODB_PORT
+            value: "27017"
+          - name: MONGODB_USERNAME
+            value: mongouser 
+          - name: MONGODB_PASSWORD
+            value: mongopwd
 
 ---
 
@@ -39,4 +39,6 @@ spec:
     app: web
   ports:
   - port: 5000
+    targetPort: 5000
+    nodePort: 30000
   type: LoadBalancer
